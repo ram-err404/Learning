@@ -1,0 +1,61 @@
+#############################################################################
+
+
+def f1()
+  File "<stdin>", line 1
+    def f1()
+           ^
+SyntaxError: invalid syntax
+>>> def f1():
+... a=10
+  File "<stdin>", line 2
+    a=10
+    ^
+IndentationError: expected an indented block
+>>> def f1():
+...     a=10
+... 
+>>> f1()
+>>> def f2():
+...     print("Hello World!!")
+... 
+>>> f2()
+Hello World!!
+>>> 
+>>> def f3()
+  File "<stdin>", line 1
+    def f3()
+           ^
+SyntaxError: invalid syntax
+>>> def f3():
+...     
+... 
+  File "<stdin>", line 3
+    
+    ^
+IndentationError: expected an indented block
+>>> def f4():
+...     pass
+... 
+>>> f4()
+>>> 
+>>> def f5():
+...     if
+  File "<stdin>", line 2
+    if
+     ^
+SyntaxError: invalid syntax
+>>> def f5():
+...     pass
+...     if amount == 10:
+...             print("Do Something")
+...     else:
+...             print("Dont do anything")
+... 
+>>> f5()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in f5
+NameError: global name 'amount' is not defined
+
+

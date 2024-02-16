@@ -1,0 +1,19 @@
+/* sorting stack using recursion. for stack size: 10000. */
+real	0m3.422s
+user	0m3.378s
+sys	0m0.008s
+/* sorting stack without recursion. for stack size: 10000. */
+real	0m3.460s
+user	0m3.441s
+sys	0m0.008s
+
+
+
+/* sorting stack using recursion. for stack size: 100000. */
+real	6m46.957s
+user	6m46.580s
+sys	0m0.020s
+/* sorting stack without recursion. for stack size: 100000. */
+real	6m46.011s
+user	6m45.546s
+sys	0m0.053s
