@@ -1,6 +1,19 @@
-
-#include<bits/stdc++.h>
+#include <iostream>
+// #include<bits/stdc++.h>
 using namespace std;
+
+int longestCommonSubstringRecursion(string &s1, string &s2, int m, int n, int res) {
+  if(m==0 || n==0)  return res;
+
+  if(s1[m-1] == s2[n-1]) {
+    // Increase res by 1
+    return longestCommonSubstringRecursion(s1, s2, m-1, n-1, res+1);
+  } else {
+    // When it is not matching, reset the res=0 in function call.
+    return max(res, max(longestCommonSubstringRecursion(s1, s2, m, n-1, 0), 
+                          longestCommonSubstringRecursion(s1, s2, m-1, n, 0) ));
+  }
+}
 
 int longestCommonSubstring(string &s1, string &s2) {
     int m=s1.size(), n=s2.size();
@@ -27,9 +40,12 @@ int longestCommonSubstring(string &s1, string &s2) {
 }
 
 int main() {
-    string a="abcde";
-    string b="abfce";
+    // string a="abcde";
+    // string b="abfce";
+    string a="LABFQDBYZAB";
+    string b="LACFDBXYZABCDEF";
 
     cout<<"Length of Longest Commong Substring: "<< longestCommonSubstring(a, b) <<endl;
+    cout<<"Length of Longest Commong Substring Using Recursion: "<< longestCommonSubstringRecursion(a, b, a.size(), b.size(), 0) <<endl;
     return 0;
 }
