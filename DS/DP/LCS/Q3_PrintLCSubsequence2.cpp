@@ -42,8 +42,10 @@ string printLCS(string &s1, string &s2) {
 }
 
 int main() {
-  string s1="abcdgh";
-  string s2="abedfh";
+  // string s1="abcdgh";
+  // string s2="abedfh";
+  string s1="agbcba";
+  string s2="abcbga";
   
   cout << printLCS(s1, s2) << endl;
   return 0;
