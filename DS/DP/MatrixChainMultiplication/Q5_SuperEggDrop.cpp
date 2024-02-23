@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 #include<algorithm>
 using namespace std;
 
@@ -83,7 +85,8 @@ public:
 };
 
 int main() {
-  int k=4, n=1000;
+  // int k=4, n=1000;
+  int k=3, n=5;
   Solution ob;
   cout<< ob.superEggDrop(k, n)<<endl;
   return 0;
