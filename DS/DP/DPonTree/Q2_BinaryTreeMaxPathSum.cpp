@@ -1,5 +1,7 @@
 /*  https://leetcode.com/problems/binary-tree-maximum-path-sum/
-    Q 124: Binary Tree Maximum Path Sum
+    Q 124: Binary Tree Maximum Path Sum.
+
+    We have to calculate the maximum path sum from any node to any node.
 */
 
 /**
