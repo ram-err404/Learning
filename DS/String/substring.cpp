@@ -11,7 +11,7 @@ std::vector<int> substr_present(char *str, char *substr) {
     else
       j=0;
     i++;
-    if(substr[j] == '\0')
+    if(j>0 && substr[j] == '\0')
       res.push_back(i-j);
   }
   return res;

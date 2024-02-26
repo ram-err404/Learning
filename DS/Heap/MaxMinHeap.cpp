@@ -5,15 +5,15 @@ using namespace std;
 
 // Max Heap.
 class Heap{
-private:
-  vector<int> data;
-  void max_heapify();
-  bool hasParent(int index);
-  int getParentIndex(int index);
-public:
-  void insert(int val);
-  void printHeap();
-  int peek();
+  private:
+    vector<int> data;
+    void max_heapify();
+    bool hasParent(int index);
+    int getParentIndex(int index);
+  public:
+    void insert(int val);
+    void printHeap();
+    int peek();
 };
 
 bool Heap::hasParent(int index) {

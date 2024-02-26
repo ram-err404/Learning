@@ -88,13 +88,15 @@ int main() {
   // s1.push(22);
   // s1.push(80);
   // s1.push(67);
-  s1.display();
-  std::cout<<"\n\n";
+  
+  // s1.display();
+  // std::cout<<"\n\n";
   s1 = sort_with_temp_stack(s1);
+  // std::cout<<"Sorting using recursion: " << std::endl;
   // sort_using_recursion(s1);
   
-  std::cout<<"Stack after sorting: stack_size: "<< s1.size() << std::endl;
-  s1.display();
+  // std::cout<<"Stack after sorting: stack_size: "<< s1.size() << std::endl;
+  // s1.display();
   
   return 0;
 }
