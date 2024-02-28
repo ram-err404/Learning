@@ -1,10 +1,12 @@
 #include<iostream>
 #include<vector>
+#include <climits>
+
 using namespace std;
 
 int maxContiguousSum(vector<int> arr) {
     int n=arr.size();
-    int sum=0, mx=0, start=0, end=0, s=0;
+    int sum=0, mx=INT_MIN, start=0, end=0, s=0;
 
     for(int i=0; i<n; i++) {
         sum += arr[i];
