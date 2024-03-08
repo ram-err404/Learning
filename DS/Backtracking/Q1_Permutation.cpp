@@ -10,15 +10,14 @@ void permute(string inp, string op, vector<string> &ans) {
         return;
     }
     int n=inp.size();
-    set<string> st;
+    set<char> st;
     st.clear();
 
     for(int i=0; i<n; i++) {
-        string newInp = inp.substr(0, i) + inp.substr(i+1, n-1-i);  // removing ith char.
-        string newOp = op + inp[i];                                 // added ith char.
-        
-        if(st.find(newInp) == st.end()) {
-            st.insert(newInp);
+        if(st.find(inp[i]) == st.end()) {
+            string newInp = inp.substr(0, i) + inp.substr(i+1, n-1-i);  // removing ith char.
+            string newOp = op + inp[i];                                 // added ith char.
+            st.insert(inp[i]);
             permute(newInp, newOp, ans);
         }
     }
