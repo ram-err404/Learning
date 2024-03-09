@@ -1,3 +1,14 @@
+/* Q1: Print all the permutation of the string. (Using Backtracking).
+ *
+ * T(n) = WorkDone * Number of Nodes
+ *  Number of Nodes = (n!)/(n-k)!               ==> n factorial.
+ *  WorkDone at each node = O(n) * O(min(n,m))  ==> 1 for loop and O(min(n,m) for s.compare)  ~= O(n^2).
+ *
+ *  T(n) = O(n^2) * O(n!/(n-k)!) 
+ *  	 = O((n^2 * n!)/(n-k)!)
+ * 
+ * */
+
 #include <iostream>
 using namespace std;
 

@@ -1,3 +1,13 @@
+/* Q1: Print all the permutation of the string. (Using recursion only).
+ *
+ * T(N) = WorkDone * Number of Nodes
+ *  Number of Nodes = N!            ==> N factorial.
+ *  WorkDone at each node = N*N     ==> (1 for loop and 1 substr() func)
+ *
+ *  T(N) = O(N^2 * N!)
+ * 
+ * */
+
 #include <iostream>
 #include <vector>
 #include <set>

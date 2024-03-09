@@ -1,3 +1,13 @@
+/* Q1: Print all the permutation of the string. (Using Backtracking).
+ *
+ * T(N) = WorkDone * Number of Nodes
+ *  Number of Nodes = N!        ==> N factorial.
+ *  WorkDone at each node = N   ==> (1 for loop)
+ *
+ *  T(N) = O(N * N!)
+ * 
+ * */
+
 #include <iostream>
 #include <vector>
 #include <unordered_set>
