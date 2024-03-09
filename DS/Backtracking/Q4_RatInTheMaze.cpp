@@ -6,36 +6,49 @@
 	
 	T(N)	= O(4^N).
 */
+
 #include <iostream>
 #include <vector> 
 
 using namespace std;
 
+bool isValid(int x, int y, vector<vector<int>> &maze) {
+    int M=maze.size();
+    int N=maze[0].size();
+
+    if(x>=0 && x<M && y>=0 && y<N && maze[x][y]==1) {
+        return true;
+    }
+    return false;
+}
+    
 void solve(int x, int y, string &s, vector<vector<int>> &maze, vector<string> &res) {
     int M=maze.size();
     int N=maze[0].size();
-    // Base case:
-    if(x<0 || y<0 || maze[x][y]==0) return;
-    
-    if(x==M-1 && y==N-1 && maze[x][y]==1) {
+
+    if(isValid(x, y, maze)==false)  return;
+
+    if(isValid(x, y, maze) && x==M-1 && y==N-1) {
         res.push_back(s);
         return;
     }
-    
-    // Now here we can move to 4 direction [Up, Right, Down, Left].
+
     char D[4] = {'U', 'R', 'D', 'L'};
-    int R[4] = {-1, 0, 1, 0};   // Row's movement.
-    int C[4] = {0, 1, 0, -1};   // Col's movement.
-    
+    int R[4] = {-1, 0, 1, 0};
+    int C[4] = {0, 1, 0, -1};
+
     for(int i=0; i<4; i++) {
-        int newx = x + R[i];
-        int newy = y + C[i];
-        if(newx>=x && newy>=y && newx<M && newy<N && maze[newx][newy]==1) {
-            s.push_back(D[i]);     // Add the moved direction to the string.
-            
-            solve(newx, newy, s, maze, res);
-            
-            s.pop_back();   // Backtracking.
+        int newX = x + R[i];
+        int newY = y + C[i];
+
+        if(isValid(newX, newY, maze)) {
+            maze[x][y] = 0;     // marked cell as visited.
+            s.push_back(D[i]);
+            solve(newX, newY, s, maze, res);
+
+            // Backtrack.
+            maze[x][y] = 1;     // restore the original maze.
+            s.pop_back();
         }
     }
 }
@@ -55,9 +68,9 @@ int main() {
 
     vector<string> res = ratInMaze(maze);
 
-    cout<<"All possible paths: [";
+    cout<<"All possible paths: [ ";
     for(string s:res) {
-        cout<<s<<", ";
+        cout<<s<<" ";
     }
     cout<<"]\nsize of res: "<<res.size()<<endl;
     return 0;
