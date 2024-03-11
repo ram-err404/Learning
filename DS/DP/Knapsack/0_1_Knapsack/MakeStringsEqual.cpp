@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 #define min(a, b, c)    (c<(a<b?a:b)?c:(a<b?a:b))
