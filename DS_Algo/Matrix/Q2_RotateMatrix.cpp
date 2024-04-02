@@ -14,7 +14,7 @@ public:
         
         // Transpose of the matrix.
         for(int i=0; i<m; i++) {
-            for(int j=0; j<=i; j++) {
+            for(int j=0; j<i; j++) {
                 swap(matrix[i][j], matrix[j][i]);
             }
         }
@@ -27,7 +27,8 @@ public:
 };
 
 int main() {
-    vector<vector<int>> matrix{{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
+    // vector<vector<int>> matrix{{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
+    vector<vector<int>> matrix{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
     Solution ob;
     ob.rotate(matrix);
 
