@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
 public:
+    // Brute Force approach:
     // T(N) = O(n*k*n)  ~= O(n^2 * k)
     // Think for an optimised version.
     int maxWindowLengthEqualNumber(vector<int>& arr) {
@@ -13,6 +14,11 @@ public:
         
         for(int i=0; i<arr.size(); i++) {
             totalDistinctElement.insert(arr[i]);
+        }
+
+        if(totalDistinctElement.size() == arr.size()) {
+            // all elements are distinct.
+            return 4;   // 3 max elements we can change and 1 self.
         }
         
         for(int i=0; i<arr.size()-3; i++) { // O(n)
