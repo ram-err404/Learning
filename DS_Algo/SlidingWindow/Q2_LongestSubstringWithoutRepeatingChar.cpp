@@ -48,8 +48,8 @@ public:
                 left++;
             }
             st.insert(c);
+            mx = max(mx, right-left+1);
             right++;
-            mx = max(mx, right-left);
         }
         return mx;
     }
