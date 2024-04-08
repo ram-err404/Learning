@@ -16,14 +16,14 @@ class Solution
 {
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
-    pair<vector<pair<int, int>>, int> spanningTree(int V, vector<vector<int>> adj[])
+    pair<int ,vector<pair<int, pair<int, int>>> > spanningTree(int V, vector<vector<int>> adj[])
     {
         int sum=0;
         vector<bool> vis(V, false);
         priority_queue< pair<int, pair<int, int>>, vector< pair<int, pair<int, int>> >,
             comparePair> pq;
         
-        vector<pair<int, int>> MST;
+        vector<pair<int, pair<int, int>>> MST;
         
         pq.push({0, {0, -1}});  // {wt, node, parent}
         // T(V, E) = E*logE + E*logE
@@ -37,7 +37,7 @@ class Solution
             if(vis[node])   continue;
             
             if(parent != -1) {
-                MST.push_back({parent, node});
+                MST.push_back({wt, {parent, node}});
             }
             vis[node] = true;
             sum += wt;
@@ -52,7 +52,7 @@ class Solution
                 }
             }
         }
-        return {MST, sum};
+        return {sum, MST};
     }
 };
 
@@ -60,12 +60,12 @@ int main() {
     int V=3;
     vector<vector<int>> adj[3] {{{1,5}, {2, 1}}, {{0, 5}, {2, 3}}, {{1, 3}, {0, 1}}};
     Solution ob;
-    pair<vector<pair<int, int>>, int> res = ob.spanningTree(V, adj);
+    pair<int ,vector<pair<int, pair<int, int>>> > res = ob.spanningTree(V, adj);
 
-    cout<<"Sum of Minimum Spanning Tree: "<< res.second << endl;
-    cout<<"Minimum Spanning Tree: {Node, Edge}: "<< endl;
-    for(auto it : res.first) {
-        cout<<"{" << it.first <<", "<< it.second <<"}";
+    cout<<"Sum of Minimum Spanning Tree: "<< res.first << endl;
+    cout<<"Minimum Spanning Tree: {Node, Edge, Weight}: "<< endl;
+    for(auto it : res.second) {
+        cout<<"{" << it.second.first <<", "<< it.second.second <<", "<< it.first <<"}";
     }
     return 0;
 }
