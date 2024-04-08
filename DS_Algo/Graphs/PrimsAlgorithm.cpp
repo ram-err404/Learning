@@ -1,4 +1,6 @@
+// Prim's Algorithm
 // Minimum Spanning Tree.
+// T(V, E)  = O(E*logE)
 
 #include <iostream>
 #include <vector>
@@ -24,7 +26,9 @@ class Solution
         vector<pair<int, int>> MST;
         
         pq.push({0, {0, -1}});  // {wt, node, parent}
-        while(!pq.empty()) {
+        // T(V, E) = E*logE + E*logE
+        while(!pq.empty()) {            // O(E)
+            // O(log(E))    // for priority queue.
             int wt = pq.top().first;
             int node = pq.top().second.first;
             int parent = pq.top().second.second;
@@ -39,6 +43,7 @@ class Solution
             sum += wt;
             
             for(auto it : adj[node]) {
+                // O(E logE)    // E times and logE for priority_queue push.
                 int edgeNode = it[0];
                 int weight = it[1];
                 
