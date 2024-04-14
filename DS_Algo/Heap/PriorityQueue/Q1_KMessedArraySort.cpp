@@ -25,6 +25,8 @@ T(N,k)  = O(N*log(k))   ==> log(k) for binary search.
 
 using namespace std;
 
+// Approach 1: Failed (for TC: 2). as for some stage, after swapping, array maynot remain sorted.
+#if 0
 int search(vector<int>& arr, int low, int high) {
   int ans=INT_MAX;
   int minIdx=-1;
@@ -69,39 +71,47 @@ vector<int> sortKMessedArray( const vector<int>& arr, int k )
   }
   return carr;
 }
+#endif
 
 // Approach 2:
 vector<int> sortKMessedArrayApproach2( const vector<int>& Arr, int k ) 
 {
-  priority_queue<int, vector<int>, greater<int>> minHeap;
+  vector<int> res = Arr;
   int n=Arr.size();
-  vector<int> arr=Arr;
-  for(int i=0; i<=k; i++)
-    minHeap.push(arr[i]);
+  priority_queue<int, vector<int>, greater<int>> minHeap;
+  int i=0;
+  for(; i<=k; i++)
+      minHeap.push(res[i]);
   
-  int i=k+1;
-  for(; i<n; i++) {
-    arr[i-(k+1)] = minHeap.top();
-    minHeap.pop();
-    minHeap.push(arr[i]);
+  int index=0;
+  while(i<n) {
+      res[index] = minHeap.top();
+      minHeap.pop();
+      minHeap.push(res[i]);
+      i++;
+      index++;
   }
-  
-  // Add the remaining window elements to the arr.
-  for(int i=0; i<=k; i++) {
-    arr[n-k-1 +i] = minHeap.top();
-    minHeap.pop();
+  while(!minHeap.empty()) {
+      res[index] = minHeap.top();
+      minHeap.pop();
+      index++;
   }
-  return arr;
+  return res;
 }
 
 int main() {
-  vector<int> arr{6,1,4,11,2,0,3,7,10,5,8,9};
-  vector<int> res = sortKMessedArray(arr, 6);
-  for(int x:res)
-    cout<< x <<" ";
-  cout<< endl;
+  // TC: 1
+  // vector<int> arr{6,1,4,11,2,0,3,7,10,5,8,9};  k=6
 
-  res = sortKMessedArrayApproach2(arr, 6);
+  // TC: 2
+  vector<int> arr{1,23,31,42,10,8,41,18,20,35,47};
+  int k=10;
+  // vector<int> res = sortKMessedArray(arr, k);
+  // for(int x:res)
+  //   cout<< x <<" ";
+  // cout<< endl;
+  vector<int> res;
+  res = sortKMessedArrayApproach2(arr, k);
   for(int x:res)
     cout<< x <<" ";
   
