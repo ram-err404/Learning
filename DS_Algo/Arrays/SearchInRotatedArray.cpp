@@ -17,9 +17,9 @@ int binarySearch(vector<int>& arr, int left, int right, int target) {
         return binarySearch(arr, mid+1, right, target);
     }
     
-    // left part is not sorted
+    // right part is not sorted
     if(target > arr[mid]) {
-        // move left to mid+1
+        // move mid+1 to high
         return binarySearch(arr, mid+1, right, target);
     }
     // otherwise

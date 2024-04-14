@@ -30,10 +30,7 @@ vector<int> kthMinimumInMSublists(vector<int> &arr, int m, int k) {
   for (int i = 0; i < n - m + 1; ++i) {
     priority_queue<int, vector<int>, greater<int>> minHeap; // Min-heap to store k smallest elements
     for (int j = i; j < i + m; ++j) {
-      minHeap.push(arr[j]);
-      if (minHeap.size() > k) {
-        minHeap.pop(); // Maintain only k elements
-      }
+      
     }
     res[i] = minHeap.top(); // kth minimum element from the current sublist
   }
@@ -42,7 +39,7 @@ vector<int> kthMinimumInMSublists(vector<int> &arr, int m, int k) {
 
 int main() {
     vector<int> arr{1,2,3,4,6,1,3};
-    int m=3, k=2;
+    int m=5, k=2;
 
     vector<int> res = kthMinimumInMSublists(arr, m, k);
     
