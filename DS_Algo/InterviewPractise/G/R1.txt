@@ -1,0 +1,40 @@
+
+Write a function which, given an array of integers of size (N ~ 10^5),
+returns the length of the longest subsequence where every next value is 1 bigger than the previous one. 
+Subsequences might not be consecutive, but must be in the same order as the given array.
+  
+Sample Case
+1 1 3 2 4 3 2 5 4 5
+
+Output: 5
+n-1
+
+  
+int helper(int idx, const vector<int>& nums, int prev, vector<int>& dp, int delta) {
+    if (idx<0) {
+      return 0;
+    }
+    
+    if(dp[idx]!=-1) return dp[idx];
+  
+    int lenTake=0;
+    int notaking=0;
+    if(idx==n-1 || abs(prev-nums[idx])<delta) {
+        prev=nums[idx];
+        lenTake = 1 + helper(idx-1, nums, prev, dp);
+    } else {
+      notaking = helper(idx-1, nums, prev, dp);
+    }
+    int mxLen = max(lenTake, notaking);
+    return dp[idx]=mxLen;
+}
+
+return helper(n-1, nums, 0, dp);
+
+Follow up
+Difference in values of consecutive elements in the subsequence must be less than Delta (Delta ~ 10^3)
+  
+Corner case:  
+delta=3  
+  
+8 9 8 10
