@@ -58,7 +58,7 @@ class Solution
 
 int main() {
     int V=3;
-    vector<vector<int>> adj[3] {{{1,5}, {2, 1}}, {{0, 5}, {2, 3}}, {{1, 3}, {0, 1}}};
+    vector<vector<int>> adj[3] {{{1,5}, {2, 1}}, {{0, 5}, {2, 3}}, {{1, 3}, {0, 1}}};   // {node=index,{edge, weight}}  ==> 0-->1 wt:5, 0-->2 wt:1
     Solution ob;
     pair<int ,vector<pair<int, pair<int, int>>> > res = ob.spanningTree(V, adj);
 
