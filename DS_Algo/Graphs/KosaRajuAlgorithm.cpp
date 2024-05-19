@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=strongly-connected-components-kosarajus-algo
+
 #include <iostream>
 #include <vector>
 #include <stack>
