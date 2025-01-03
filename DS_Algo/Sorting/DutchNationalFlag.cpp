@@ -13,7 +13,7 @@ class Solution
         // code here 
         int left=0, mid=0, right=n-1;
         
-        while(mid < right) {
+        while(mid <= right) {
             if(a[mid] == 0) {
                 swap(a[left], a[mid]);
                 left++;

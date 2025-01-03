@@ -1,5 +1,6 @@
 #include <iostream>
-// using namespace std;
+using namespace std;
+#include <vector>
 
 // To make c++ faster
 
@@ -33,17 +34,20 @@ void swap(int &a, int &b) {
 }
 
 int partition(int arr[], int low, int high) {
-  int i=low-1;
-  int pivot = arr[high];
+  // code here
+  int i=low;
+  int pivot=arr[high];
+  
   for(int j=low; j<high; j++) {
-    if(arr[j] < pivot) {
-      // swap arr[j] and arr[i]
-      i++;
-      swap(arr[j], arr[i]);
-    }
+      if(arr[j] < pivot) {
+          if(i!=j) {
+              swap(arr[i], arr[j]);
+          }
+          i++;
+      }
   }
-  swap(arr[i+1], arr[high]);
-  return (i+1);
+  swap(arr[i], arr[high]);
+  return i;
 }
 
 void quickSort(int arr[], int low, int high) {
